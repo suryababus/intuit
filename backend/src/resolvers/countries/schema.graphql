@@ -1,0 +1,121 @@
+letype CapitalInfo {
+  latlng: [Float]
+}
+
+type KeyValue {
+  key: String
+  value: String
+}
+
+type CoatOfArms {
+  png: String
+  svg: String
+}
+
+type Flags {
+  png: String
+  svg: String
+  alt: String
+}
+
+type Car {
+  side: String
+  signs: [String]
+}
+
+type Maps {
+  googleMaps: String
+  openStreetMaps: String
+}
+
+type TranslationValue {
+  official: String
+  common: String
+}
+
+type Translation {
+  key: String
+  value: TranslationValue
+}
+
+type Idd {
+  root: String
+  suffixes: [String]
+}
+type NativeInfo {
+  official: String
+  common: String
+}
+type NativeName {
+  key: String
+  value: NativeInfo
+}
+
+type Name {
+  common: String
+  official: String
+  nativeName: [NativeName]
+}
+type CurrencyDetail {
+  name: String
+  symbol: String
+}
+
+type Currency {
+  key: String
+  value: CurrencyDetail
+}
+
+type Country {
+  cca2: String
+  ccn3: String
+  cca3: String
+  cioc: String
+  independent: Boolean
+  status: String
+  unMember: Boolean
+  region: String
+  subregion: String
+  landlocked: Boolean
+  languages: [KeyValue]
+  area: Float
+  flag: String
+  population: Int
+  fifa: String
+  startOfWeek: String
+  capitalInfo: CapitalInfo
+  coatOfArms: CoatOfArms
+  flags: Flags
+  continents: [String]
+  timezones: [String]
+  car: Car
+  maps: Maps
+  borders: [String]
+  latlng: [Float]
+  translations: [Translation]
+  altSpellings: [String]
+  capital: [String]
+  idd: Idd
+  currencies: [Currency]
+  tld: [String]
+  name: Name
+}
+
+enum SearchField {
+  NAME
+  REGION
+  LANGUAGE
+  CURRENCY
+}
+
+input FilterOptions {
+  field: SearchField
+  value: String
+}
+
+type Query {
+  getCountries: [Country]
+  getCountriesByName(name: String): [Country]
+  getCountriesByRegion(region: String): [Country]
+  getFilteredCountries(filterOptions: FilterOptions): [Country]
+}

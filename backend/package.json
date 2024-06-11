@@ -1,0 +1,32 @@
+{
+  "name": "explorer-be",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/typescript": "4.0.7",
+    "@graphql-codegen/typescript-resolvers": "4.1.0",
+    "@parcel/watcher": "^2.4.1",
+    "@types/bun": "latest",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "bun --watch  index.ts",
+    "codegen": "graphql-codegen --config codegen.ts"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "@graphql-tools/schema": "^10.0.4",
+    "@hono/graphql-server": "^0.4.3",
+    "axios": "^1.7.2",
+    "graphql": "^16.8.1",
+    "graphql-http": "^1.22.1",
+    "graphql-tools": "^9.0.1",
+    "hono": "^4.4.4",
+    "ruru": "^2.0.0-beta.11"
+  }
+}
